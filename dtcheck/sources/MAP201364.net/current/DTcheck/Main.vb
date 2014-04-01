@@ -14,7 +14,7 @@ Imports DTini
 Public Class DTcheck
 
 
-    <CommandMethod("DTpompe")> Sub DTpompe()
+    <CommandMethod("DTpump")> Sub DTpompe()
 
         'Lecture du fichier INI
         Dim myIniFile As New IniFile(My.Application.Info.DirectoryPath & "\DTcheck.ini")
@@ -26,6 +26,29 @@ Public Class DTcheck
         Dim bolLayers As Integer = myIniFile.GetInteger("DTpompe", "LAYERS", "0")
         Dim bolBlocks As Integer = myIniFile.GetInteger("DTpompe", "BLOCKS", "0")
         Dim bolEntities As Integer = myIniFile.GetInteger("DTpompe", "ENTITES", "0")
+
+        'Gestion des erreurs de saisie du fichier INI
+        Select Case True
+            Case strWriteType <> "CSV" And strWriteType <> "SQLITE"
+                MsgBox("Le format de fichier doit être CSV ou SQLITE")
+                Exit Sub
+            Case Directory.Exists(strWriteDirectory) = False
+                MsgBox("Le répertoire choisi n'existe pas")
+                Exit Sub
+            Case bolLayouts <> 0 And bolLayouts <> 1
+                MsgBox("La valeur de LAYOUTS doit être soit 0 soit 1")
+                Exit Sub
+            Case bolLayers <> 0 And bolLayers <> 1
+                MsgBox("La valeur de LAYERS doit être soit 0 soit 1")
+                Exit Sub
+            Case bolBlocks <> 0 And bolBlocks <> 1
+                MsgBox("La valeur de BLOCKS doit être soit 0 soit 1")
+                Exit Sub
+            Case bolEntities <> 0 And bolEntities <> 1
+                MsgBox("La valeur de ENTITIES doit être soit 0 soit 1")
+                Exit Sub
+            Case Else
+        End Select
 
         'Traitement des présentations
         If bolLayouts = 1 Then

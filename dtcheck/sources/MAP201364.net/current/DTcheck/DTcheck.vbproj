@@ -61,7 +61,7 @@
       <Private>False</Private>
     </Reference>
     <Reference Include="DTini">
-      <HintPath>..\..\DLLs\DTini.dll</HintPath>
+      <HintPath>..\..\..\..\..\lib\dtini\package\CAD201364.net\current\DTini.dll</HintPath>
     </Reference>
     <Reference Include="ManagedMapApi">
       <HintPath>C:\Program Files\Autodesk\AutoCAD Map 3D 2013\ManagedMapApi.dll</HintPath>
