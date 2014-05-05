@@ -23,8 +23,3 @@ Première version partagée sur le NAS, traite les présentation, les calques et le
 v0.0.2
 ------
 Ajout de l'écriture en SQLite
-
-V0.2
-----
-Modification du nom de la Commande en DTPump
-Contrôle du fichier ini avec annulation en la fonction si le fichier n'est pas correct
